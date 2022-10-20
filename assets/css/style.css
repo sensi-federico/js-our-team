@@ -1,0 +1,21 @@
+
+body {
+    background-color: #e2e2e2;
+}
+
+.container {
+    margin: 2rem auto;
+}
+
+.container-slim {
+    max-width: 50%;
+    margin: auto;
+}
+
+.card-member {
+    background-color: whitesmoke;
+    text-align: center;
+}
+.card-member > img {
+    width: 100%;
+}

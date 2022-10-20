@@ -8,32 +8,32 @@ const team = [
     {
           name: 'Wayne Barnett ',
           role: 'Founder & CEO ',
-          image: 'wayne-barnett-founder-ceo.jpg '
+          image: 'wayne-barnett-founder-ceo.jpg'
     },
     {
           name: 'Angela Caroll ',
           role: 'Chief Editor ',
-          image: 'angela-caroll-chief-editor.jpg '
+          image: 'angela-caroll-chief-editor.jpg'
     },
     {
           name: 'Walter gordon ',
           role: 'Office Manager ',
-          image: 'walter-gordon-office-manager.jpg '
+          image: 'walter-gordon-office-manager.jpg'
     },
     {
           name: 'Angela Lopez ',
           role: 'Social Media Manager ',
-          image: 'angela-lopez-social-media-manager.jpg '
+          image: 'angela-lopez-social-media-manager.jpg'
     },
     {
           name: 'Scott Estrada ',
           role: 'Developer ',
-          image: 'scott-estrada-developer.jpg '
+          image: 'scott-estrada-developer.jpg'
     },
     {
           name: 'Barbara Ramos ',
           role: 'Grafic Designer ',
-          image: 'barbara-ramos-graphic-designer.jpg '
+          image: 'barbara-ramos-graphic-designer.jpg'
     }
 
 ]
@@ -49,18 +49,36 @@ for (let i = 0; i < team.length; i++) {
 }
     
 // MILESTONE 2: Stampare le stesse informazioni su DOM sottoforma di stringhe
-const stringsEl = document.querySelector('.strings')
-for (let i = 0; i < team.length; i++) {
-    const member = team[i];
-    const divEl = document.createElement('div');
-    stringsEl.append(divEl);
+// const stringsEl = document.querySelector('.strings')
+// for (let i = 0; i < team.length; i++) {
+//     const member = team[i];
+//     const divEl = document.createElement('div');
+//     stringsEl.append(divEl);
     
-    for (const key in member) {
-          divEl.append(key, ' ', member[key]);
-    }
+//     for (const key in member) {
+//           divEl.append(key, ' ', member[key]);
+//     }
     
-}
+// }
 
 // BONUS 1: Trasformare la stringa foto in una immagine effettiva
-
 // BONUS 2: Organizzare i singoli membri in card/schede 
+const rowEl = document.querySelector('.row');
+
+for (let i = 0; i < team.length; i++) {
+      const member = team[i];
+      const colEl = document.createElement('div');
+      colEl.classList.add('col');
+
+      const cardMember = document.createElement('div');
+      cardMember.classList.add('card-member');
+      colEl.append(cardMember)
+
+      cardMember.innerHTML = `
+      <img src="./assets/img/${member.image}" alt="">
+      <h4 class="pt-3">${member.name}</h4>
+      <h5 class="pb-3">${member.role}</h5>
+      `
+      rowEl.insertAdjacentElement('beforeend', colEl);
+  
+  }
